@@ -1,77 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Your e-commerce website for high-quality products.">
-        <meta name="keywords" content="e-commerce, products, buy online">
-        <meta name="author" content="Your Name">
-        <title>E-Commerce</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your e-commerce website for high-quality products.">
+    <meta name="keywords" content="e-commerce, products, buy online">
+    <meta name="author" content="Your Name">
+    <title>E-Commerce</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <!-- Sticky Header -->
     <header class="sticky-header">
         <div class="logo">E-Shop</div>
         <nav>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="product.html">Products</a></li>
-                <li><a href="cart.html">Cart</a></li>
-                <li><a href="auth.html">Login</a></li>
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link" href="">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="product.html">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+                <li class="nav-item"><a class="nav-link" href="auth.html">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="shipping.html">Shipping</a></li>
+                <li class="nav-item"><a class="nav-link" href="order_history.html">Order History</a></li>
             </ul>
         </nav>
         <div class="cart-icon">
-            <a href="cart.html">Cart (0)</a>
+            <a href="cart.html">Cart</a>
         </div>
     </header>
 
     <!-- Search and Filter Section -->
-    <div class="search-filter-section">
-        <input type="text" id="search-bar" placeholder="Search products..." onkeyup="searchProducts()">
-        <select id="category-filter" onchange="filterProducts()">
+    <div class="search-filter-section container">
+        <input type="text" id="search-bar" class="form-control" placeholder="Search products..." onkeyup="searchProducts()">
+        <select id="category-filter" class="form-control" onchange="filterProducts()">
             <option value="all">All Categories</option>
             <option value="electronics">Electronics</option>
             <option value="clothing">Clothing</option>
             <option value="books">Books</option>
         </select>
-        <select id="price-filter" onchange="filterProducts()">
+        <select id="price-filter" class="form-control" onchange="filterProducts()">
             <option value="all">All Prices</option>
             <option value="low">Under $50</option>
             <option value="mid">$50 - $100</option>
             <option value="high">Over $100</option>
         </select>
-        <select id="brand-filter" onchange="filterProducts()">
+        <select id="brand-filter" class="form-control" onchange="filterProducts()">
             <option value="all">All Brands</option>
             <option value="brandA">Brand A</option>
             <option value="brandB">Brand B</option>
         </select>
-        <select id="rating-filter" onchange="filterProducts()">
+        <select id="rating-filter" class="form-control" onchange="filterProducts()">
             <option value="all">All Ratings</option>
             <option value="4">4 Stars & Up</option>
             <option value="3">3 Stars & Up</option>
         </select>
-    </div>
-    <div>
-        <select id="language-select" onchange="changeLanguage()">
-            <option value="en">English</option>
-            <option value="es">Spanish</option>
-        </select>
+        <div class="language-select-wrapper">
+            <select id="language-select" class="form-control" onchange="changeLanguage()">
+                <option value="en">English</option>
+                <option value="es">Spanish</option>
+            </select>
+        </div>
     </div>
 
     <!-- Product Listing -->
-    <section class="products">
+    <section class="products container">
         <h2>Featured Products</h2>
         <div class="product-grid" id="product-list">
             <!-- Products will be dynamically added here -->
         </div>
     </section>
-
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 E-Shop. All rights reserved.</p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>

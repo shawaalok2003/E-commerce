@@ -27,7 +27,7 @@ function displayCart() {
             <td>$${item.price.toFixed(2)}</td>
             <td>${item.quantity}</td>
             <td>$${(item.price * item.quantity).toFixed(2)}</td>
-            <td><button onclick="removeFromCart('${item.name}')">Remove</button></td>
+            <td style: width:100px; height:50px;><button onclick="removeFromCart('${item.name}')">Remove</button></td>
         `;
         cartTableBody.appendChild(row);
         total += item.price * item.quantity;
@@ -43,16 +43,6 @@ function removeFromCart(productName) {
     displayCart();
 }
 
-function checkout() {
-    if (cart.length === 0) {
-        alert("Your cart is empty!");
-        return;
-    } else {
-        // Redirect to a specific URL if the cart is not empty
-        window.location.href = "https://dhandaeasy.com";
-    }
-}
-
 window.onload = displayCart;
 let discountCode = 'SAVE10'; // Example discount code
 let discountAmount = 10; // Example discount amount in dollars
@@ -65,4 +55,36 @@ function applyDiscount() {
     } else {
         alert('Invalid discount code.');
     }
+}
+function saveOrder(order) {
+    let orders = JSON.parse(localStorage.getItem('orders')) || [];
+    orders.push(order);
+    localStorage.setItem('orders', JSON.stringify(orders));
+}
+
+// Example checkout function (simplified)
+function checkout() {
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
+    // Create an order object
+    const order = {
+        orderId: Date.now(), // Unique ID based on current timestamp
+        productName: cart.map(item => item.name).join(', '),
+        quantity: cart.reduce((sum, item) => sum + item.quantity, 0),
+        total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+        date: new Date().toISOString()
+    };
+
+    // Save the order
+    saveOrder(order);
+
+    // Clear the cart
+    cart = [];
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Redirect to a payment platform (for demonstration)
+    window.location.href = "https://payment-platform.com";
 }

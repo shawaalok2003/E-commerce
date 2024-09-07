@@ -1,24 +1,32 @@
-// Example order data, replace with your actual data source
-const orders = [
-    { orderId: '001', product: 'Smartphone', quantity: 1, total: 299.99, date: '2024-09-01' },
-    { orderId: '002', product: 'T-Shirt', quantity: 2, total: 39.98, date: '2024-09-05' }
-];
+// order-history.js
 
+// Example function to simulate retrieving order history from local storage
+function getOrderHistory() {
+    const orders = JSON.parse(localStorage.getItem('orders')) || [];
+    return orders;
+}
+
+// Function to display order history in the table
 function displayOrderHistory() {
-    const orderTableBody = document.querySelector('#order-history-table tbody');
-    orderTableBody.innerHTML = '';
+    const orders = getOrderHistory();
+    const tableBody = document.getElementById('order-history-table').getElementsByTagName('tbody')[0];
 
+    // Clear existing rows
+    tableBody.innerHTML = '';
+
+    // Populate table with order history
     orders.forEach(order => {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${order.orderId}</td>
-            <td>${order.product}</td>
+            <td>${order.productName}</td>
             <td>${order.quantity}</td>
             <td>$${order.total.toFixed(2)}</td>
-            <td>${order.date}</td>
+            <td>${new Date(order.date).toLocaleDateString()}</td>
         `;
-        orderTableBody.appendChild(row);
+        tableBody.appendChild(row);
     });
 }
 
+// Initialize the page by displaying the order history
 window.onload = displayOrderHistory;

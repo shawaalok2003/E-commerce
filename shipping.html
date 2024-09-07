@@ -4,16 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shipping Options</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="shipping.js" defer></script>
 </head>
 <body>
-    <h1>Shipping Options</h1>
-    <div>
-        <select id="shipping-method" onchange="calculateShipping()">
-            <option value="standard">Standard Shipping</option>
-            <option value="express">Express Shipping</option>
-        </select>
-        <p id="shipping-cost">Shipping Cost: $0.00</p>
-    </div>
+    <header class="sticky-header">
+        <div class="logo">E-Shop</div>
+        <nav>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="auth.html">Login</a></li>
+            </ul>
+        </nav>
+        <div class="cart-icon">
+            <a href="cart.html">Cart (0)</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1 class="page-title">Shipping Options</h1>
+        <div class="shipping-options">
+            <label for="shipping-method">Choose a shipping method:</label>
+            <select id="shipping-method" class="form-control" onchange="calculateShipping()">
+                <option value="standard">Standard Shipping (5-7 days) - $5.00</option>
+                <option value="express">Express Shipping (2-3 days) - $15.00</option>
+                <option value="overnight">Overnight Shipping (1 day) - $25.00</option>
+            </select>
+            <p id="shipping-cost" class="cost">Shipping Cost: $0.00</p>
+        </div>
+    </main>
+
+    <footer class="container">
+        <p>&copy; 2024 E-Shop. All rights reserved.</p>
+    </footer>
 </body>
 </html>

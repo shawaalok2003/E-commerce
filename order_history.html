@@ -4,23 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order History</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="order-history.js" defer></script>
 </head>
 <body>
-    <h1>Order History</h1>
-    <table id="order-history-table">
-        <thead>
-            <tr>
-                <th>Order ID</th>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Total</th>
-                <th>Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Order history items will be dynamically generated here -->
-        </tbody>
-    </table>
+    <header class="sticky-header">
+        <div class="logo">E-Shop</div>
+        <nav>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="auth.html">Login</a></li>
+                <li><a href="order-history.html">Order History</a></li>
+            </ul>
+        </nav>
+        <div class="cart-icon">
+            <a href="cart.html">Cart (0)</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1 class="page-title">Order History</h1>
+        <table id="order-history-table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Order history items will be dynamically generated here -->
+            </tbody>
+        </table>
+    </main>
+
+    <footer class="container">
+        <p>&copy; 2024 E-Shop. All rights reserved.</p>
+    </footer>
 </body>
 </html>
