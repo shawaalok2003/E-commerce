@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Options</title>
+    <script src="shipping.js" defer></script>
+</head>
+<body>
+    <h1>Shipping Options</h1>
+    <div>
+        <select id="shipping-method" onchange="calculateShipping()">
+            <option value="standard">Standard Shipping</option>
+            <option value="express">Express Shipping</option>
+        </select>
+        <p id="shipping-cost">Shipping Cost: $0.00</p>
+    </div>
+</body>
+</html>

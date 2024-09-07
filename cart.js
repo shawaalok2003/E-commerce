@@ -54,3 +54,15 @@ function checkout() {
 }
 
 window.onload = displayCart;
+let discountCode = 'SAVE10'; // Example discount code
+let discountAmount = 10; // Example discount amount in dollars
+
+function applyDiscount() {
+    const code = document.getElementById('discount-code').value;
+    if (code === discountCode) {
+        alert(`Discount applied: $${discountAmount}`);
+        // Update the cart total after discount
+    } else {
+        alert('Invalid discount code.');
+    }
+}

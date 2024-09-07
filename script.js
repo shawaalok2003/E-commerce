@@ -1,10 +1,10 @@
 let cart = [];
 let products = [
-    { name: 'Smartphone', category: 'electronics', price: 299.99, imgSrc: 'smartphone.jpg' },
-    { name: 'T-Shirt', category: 'clothing', price: 19.99, imgSrc: 'tshirt.jpg' },
-    { name: 'Laptop', category: 'electronics', price: 799.99, imgSrc: 'laptop.jpg' },
-    { name: 'Book', category: 'books', price: 9.99, imgSrc: 'book.jpg' },
-    { name: 'Headphones', category: 'electronics', price: 49.99, imgSrc: 'headphones.jpg' },
+    { name: 'Smartphone', category: 'electronics', price: 299.99, imgSrc: 'https://images.unsplash.com/photo-1600087626014-e652e18bbff2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c21hcnRwaG9uZXxlbnwwfHwwfHx8MA%3D%3D' },
+    { name: 'T-Shirt', category: 'clothing', price: 19.99, imgSrc: 'https://images.unsplash.com/photo-1489980557514-251d61e3eeb6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dHNoaXJ0fGVufDB8fDB8fHww' },
+    { name: 'Laptop', category: 'electronics', price: 799.99, imgSrc: 'https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wfGVufDB8fDB8fHww' },
+    { name: 'Book', category: 'books', price: 9.99, imgSrc: 'https://plus.unsplash.com/premium_photo-1667251760504-096946b820af?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGJvb2t8ZW58MHx8MHx8fDA%3D' },
+    { name: 'Headphones', category: 'electronics', price: 49.99, imgSrc: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGVhZHBob25lfGVufDB8fDB8fHww' },
     // Add more products here
 ];
 
@@ -62,6 +62,8 @@ function searchProducts() {
 function filterProducts() {
     const categoryFilter = document.getElementById('category-filter').value;
     const priceFilter = document.getElementById('price-filter').value;
+    const brandFilter = document.getElementById('brand-filter').value;
+    const ratingFilter = document.getElementById('rating-filter').value;
     let filteredProducts = products;
 
     if (categoryFilter !== 'all') {
@@ -78,6 +80,14 @@ function filterProducts() {
         }
     }
 
+    if (brandFilter !== 'all') {
+        filteredProducts = filteredProducts.filter(product => product.brand === brandFilter);
+    }
+
+    if (ratingFilter !== 'all') {
+        filteredProducts = filteredProducts.filter(product => product.rating >= parseInt(ratingFilter));
+    }
+
     displayProducts(filteredProducts);
 }
 
@@ -87,3 +97,20 @@ function init() {
 }
 
 window.onload = init;
+const translations = {
+    en: {
+        welcome: "Welcome",
+        search: "Search products..."
+    },
+    es: {
+        welcome: "Bienvenido",
+        search: "Buscar productos..."
+    }
+};
+
+function changeLanguage() {
+    const language = document.getElementById('language-select').value;
+    document.querySelector('#search-bar').placeholder = translations[language].search;
+    document.querySelector('h1').textContent = translations[language].welcome;
+    console.log(`Language changed to: ${language}`);
+}

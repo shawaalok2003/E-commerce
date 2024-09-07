@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Shop - Advanced</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Your e-commerce website for high-quality products.">
+        <meta name="keywords" content="e-commerce, products, buy online">
+        <meta name="author" content="Your Name">
+        <title>E-Commerce</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -24,7 +27,7 @@
     </header>
 
     <!-- Search and Filter Section -->
-    <section class="search-filter">
+    <div class="search-filter-section">
         <input type="text" id="search-bar" placeholder="Search products..." onkeyup="searchProducts()">
         <select id="category-filter" onchange="filterProducts()">
             <option value="all">All Categories</option>
@@ -38,7 +41,23 @@
             <option value="mid">$50 - $100</option>
             <option value="high">Over $100</option>
         </select>
-    </section>
+        <select id="brand-filter" onchange="filterProducts()">
+            <option value="all">All Brands</option>
+            <option value="brandA">Brand A</option>
+            <option value="brandB">Brand B</option>
+        </select>
+        <select id="rating-filter" onchange="filterProducts()">
+            <option value="all">All Ratings</option>
+            <option value="4">4 Stars & Up</option>
+            <option value="3">3 Stars & Up</option>
+        </select>
+    </div>
+    <div>
+        <select id="language-select" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+        </select>
+    </div>
 
     <!-- Product Listing -->
     <section class="products">
