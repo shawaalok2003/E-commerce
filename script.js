@@ -47,7 +47,12 @@ function displayProducts(productsToDisplay) {
             <img src="${product.imgSrc}" alt="${product.name}">
             <h3>${product.name}</h3>
             <p>$${product.price.toFixed(2)}</p>
-            <button onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
+           <button class="cart-button" onclick="addToCart('${product.name}', ${product.price})">
+    Add to Cart
+</button>
+<button class="wishlist-button" onclick="addToWishlist(${product.id})">
+    Add to Wishlist
+</button>
         `;
         productGrid.appendChild(productCard);
     });

@@ -1,33 +1,69 @@
-let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+let wishlist = [];
 
-function displayWishlist() {
-    const wishlistDiv = document.getElementById('wishlist');
-    wishlistDiv.innerHTML = '';
-
-    wishlist.forEach(item => {
-        const itemDiv = document.createElement('div');
-        itemDiv.classList.add('wishlist-item');
-        itemDiv.innerHTML = `
-            <h3>${item.name}</h3>
-            <p>$${item.price.toFixed(2)}</p>
-            <button onclick="removeFromWishlist('${item.name}')">Remove</button>
-        `;
-        wishlistDiv.appendChild(itemDiv);
-    });
-}
-
-function addToWishlist(productName, productPrice) {
-    if (!wishlist.find(item => item.name === productName)) {
-        wishlist.push({ name: productName, price: productPrice });
-        localStorage.setItem('wishlist', JSON.stringify(wishlist));
-        displayWishlist();
+// Function to add a product to the wishlist
+function addToWishlist(productId) {
+    const product = products.find(item => item.id === productId);
+    if (product && !wishlist.find(item => item.id === productId)) {
+        wishlist.push(product);
+        saveWishlistToLocalStorage();
+        alert(`${product.name} has been added to your wishlist.`);
+    } else {
+        alert('This product is already in your wishlist.');
     }
 }
 
-function removeFromWishlist(productName) {
-    wishlist = wishlist.filter(item => item.name !== productName);
+// Function to save wishlist to local storage
+function saveWishlistToLocalStorage() {
     localStorage.setItem('wishlist', JSON.stringify(wishlist));
+}
+
+// Function to load wishlist from local storage
+function loadWishlistFromLocalStorage() {
+    const savedWishlist = localStorage.getItem('wishlist');
+    if (savedWishlist) {
+        wishlist = JSON.parse(savedWishlist);
+    }
+}
+
+window.onload = loadWishlistFromLocalStorage;
+function displayWishlist() {
+    const wishlistContainer = document.getElementById('wishlist');
+    const emptyMessage = document.getElementById('empty-message');
+    
+    wishlistContainer.innerHTML = '';
+    if (wishlist.length === 0) {
+        emptyMessage.style.display = 'block';
+        return;
+    } else {
+        emptyMessage.style.display = 'none';
+    }
+    
+    wishlist.forEach(item => {
+        const wishlistItem = document.createElement('div');
+        wishlistItem.classList.add('wishlist-item');
+        
+        wishlistItem.innerHTML = `
+            <img src="${item.imgSrc}" alt="${item.name}">
+            <div>
+                <h3>${item.name}</h3>
+                <p>$${item.price.toFixed(2)}</p>
+            </div>
+            <button class="remove-btn" onclick="removeFromWishlist(${item.id})">Remove</button>
+        `;
+        
+        wishlistContainer.appendChild(wishlistItem);
+    });
+}
+
+// Remove item from wishlist
+function removeFromWishlist(productId) {
+    wishlist = wishlist.filter(item => item.id !== productId);
+    saveWishlistToLocalStorage();
     displayWishlist();
 }
 
-window.onload = displayWishlist;
+// Initialize wishlist on page load
+window.onload = function() {
+    loadWishlistFromLocalStorage();
+    displayWishlist();
+};

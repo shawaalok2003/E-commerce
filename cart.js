@@ -86,5 +86,5 @@ function checkout() {
     localStorage.setItem('cart', JSON.stringify(cart));
 
     // Redirect to a payment platform (for demonstration)
-    window.location.href = "https://payment-platform.com";
+    window.location.href = "https://buy.stripe.com/test_28o15j9IX9Ss4TueUY";
 }

@@ -4,19 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details</title>
-    <script src="product-details.js" defer></script>
+    <link rel="stylesheet" href="product_details.css">
 </head>
 <body>
-    <h1>Product Details</h1>
-    <div id="product-detail">
-        <h2 id="product-name"></h2>
-        <p id="product-price"></p>
-        <h3>Reviews:</h3>
-        <div id="reviews">
-            <!-- Reviews will be dynamically generated here -->
-        </div>
-        <textarea id="review-text" placeholder="Write a review..."></textarea>
-        <button onclick="submitReview()">Submit Review</button>
-    </div>
+    <header class="sticky-header">
+        <div class="logo">E-Shop</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="product-details" class="product-details">
+        <!-- Product details will be loaded here -->
+    </section>
+
+    <footer>
+        <p>&copy; 2024 E-Shop. All rights reserved.</p>
+    </footer>
+
+    <script src="product_details.js"></script>
 </body>
 </html>

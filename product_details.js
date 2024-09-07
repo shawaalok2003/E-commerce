@@ -1,38 +1,38 @@
-let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+// Get the product ID from the URL
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get('id');
+console.log('Product ID:', productId);
 
-function displayProductDetails(product) {
-    document.getElementById('product-name').textContent = product.name;
-    document.getElementById('product-price').textContent = `$${product.price.toFixed(2)}`;
-    displayReviews();
+if (productId) {
+    // Fetch product details based on the ID
+    fetch(`https://api.example.com/products/${productId}`)
+        .then(response => {
+            console.log('API Response:', response);
+            return response.json();
+        })
+        .then(product => {
+            console.log('Product data:', product); // Log the data
+
+            // Ensure product data exists before displaying
+            if (product) {
+                const productDetailsSection = document.getElementById('product-details');
+                productDetailsSection.innerHTML = `
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <h2>${product.name}</h2>
+                        <p class="price">$${product.price.toFixed(2)}</p>
+                        <p class="description">${product.description}</p>
+                        <button class="cart-button" onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
+                        <button class="wishlist-button" onclick="addToWishlist(${product.id})">Add to Wishlist</button>
+                    </div>
+                `;
+            } else {
+                console.error('Product not found');
+            }
+        })
+        .catch(error => console.error('Error fetching product details:', error));
+} else {
+    console.error('Product ID not found in URL');
 }
-
-function displayReviews() {
-    const reviewsDiv = document.getElementById('reviews');
-    reviewsDiv.innerHTML = '';
-
-    reviews.forEach(review => {
-        const reviewDiv = document.createElement('div');
-        reviewDiv.classList.add('review');
-        reviewDiv.innerHTML = `
-            <p>${review.text}</p>
-            <p>Rating: ${review.rating}</p>
-        `;
-        reviewsDiv.appendChild(reviewDiv);
-    });
-}
-
-function submitReview() {
-    const reviewText = document.getElementById('review-text').value;
-    const rating = prompt("Enter rating (1-5):");
-    if (rating < 1 || rating > 5) {
-        alert("Rating must be between 1 and 5.");
-        return;
-    }
-
-    reviews.push({ text: reviewText, rating: parseInt(rating) });
-    localStorage.setItem('reviews', JSON.stringify(reviews));
-    displayReviews();
-}
-
-const product = { name: 'Smartphone', price: 299.99 }; // Example product data
-window.onload = () => displayProductDetails(product);

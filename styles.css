@@ -213,113 +213,8 @@ body {
     background: #f06595;
     transform: scale(1.05);
 }
-/* Footer Styles */
-footer {
-    background: #960dbb;
-    color: #ffffff;
-    padding: 1.5rem;
-    text-align: center;
-    margin-top: 30px;
-}
-/* Global Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    background: #f9f9f9;
-}
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-nav ul li {
-    margin: 0 10px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.cart-icon a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.page-title {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 28px;
-    color: #333;
-}
-
-.shipping-options {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 20px;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.shipping-options label {
-    display: block;
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.form-control {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.cost {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-}
-
-footer {
-    text-align: center;
-    padding: 10px;
-    background: #333;
-    color: #fff;
-}
-/* Add to styles.css */
-
-/* Table styling */
+/* Order History Table */
 #order-history-table {
     width: 100%;
     border-collapse: collapse;
@@ -343,4 +238,203 @@ footer {
 
 #order-history-table tr:hover {
     background-color: #eaeaea;
+}
+
+/* Footer Styles */
+footer {
+    background: #960dbb;
+    color: #ffffff;
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 30px;
+}
+@media (max-width: 768px) {
+    .sticky-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .sticky-header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-filter-section {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .container {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sticky-header .logo {
+        font-size: 1.2rem;
+    }
+
+    .product-card .card-body h3 {
+        font-size: 1.25rem;
+    }
+
+    .product-card .card-body p {
+        font-size: 0.9rem;
+    }
+
+    .product-card .card-body button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .footer {
+        font-size: 0.9rem;
+    }
+}
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        gap: 0;
+        display: none; /* Hide menu by default */
+    }
+
+    .nav-menu.active {
+        display: flex; /* Show menu when active */
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .search-cart-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-cart-wrapper input {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sticky-header .logo {
+        font-size: 1.5rem;
+    }
+
+    .sticky-header nav ul li a {
+        font-size: 0.9rem;
+    }
+
+    .search-cart-wrapper input {
+        font-size: 12px;
+    }
+
+    .cart-icon a {
+        font-size: 1.25rem;
+    }
+}
+.button {
+    background-color: #ff6b6b;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin: 5px;
+}
+
+.button:hover {
+    background-color: #f06595;
+    transform: scale(1.05);
+}
+
+.button:active {
+    background-color: #e14f77;
+    transform: scale(0.98);
+}
+
+/* Specific Button Styles */
+.add-to-cart {
+    background-color: #dc08d9; /* Green */
+}
+
+.add-to-cart:hover {
+    background-color: #3f0c34;
+}
+
+.add-to-wishlist {
+    background-color: #bd12e4; /* Blue */
+}
+
+.add-to-wishlist:hover {
+    background-color: #03284e;
+}
+
+/* Icon Button Styles */
+.button .icon {
+    margin-right: 8px;
+}
+.product-card h3 {
+    font-size: 1.5rem; /* Adjust size as needed */
+    color: #333;
+    font-weight: bold;
+    margin: 0 0 10px;
+    text-transform: capitalize;
+    line-height: 1.3;
+}
+
+/* Product Price Styles */
+.product-card p {
+    font-size: 1.25rem; /* Adjust size as needed */
+    color: #ff6b6b; /* Bright color for emphasis */
+    font-weight: bold;
+    margin: 0;
+}
+.cart-button, .wishlist-button {
+    width: 100px;
+    height: 50px;
+    background-color: #724cbe; /* Green color for the cart button */
+    color: white;
+    margin-left: 20px;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+}
+
+.wishlist-button {
+    background-color: #c417d0; /* Yellow color for the wishlist button */
+}
+
+.cart-button:hover, .wishlist-button:hover {
+    transform: scale(1.05);
+}
+
+.cart-button:hover {
+    background-color: #823681; /* Darker green on hover */
+}
+
+.wishlist-button:hover {
+    background-color: #362135; /* Darker yellow on hover */
+}
+
+/* Optional: Add some spacing between the buttons */
+.cart-button, .wishlist-button {
+    margin-right: 10px;
 }

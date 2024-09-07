@@ -4,12 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wishlist</title>
-    <script src="wishlist.js" defer></script>
+    <link rel="stylesheet" href="styles.css"> <!-- Include your main stylesheet -->
+    <style>
+        /* Additional styling for the Wishlist page */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color:linear-gradient(135deg, #ff6b6b, #f06595);
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        .wishlist-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .wishlist-item img {
+            width: 100px;
+            height: auto;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+
+        .wishlist-item h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .wishlist-item p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .remove-btn {
+            background-color: #dc3545;
+            color: #ffffff;
+            border: none;
+            padding: 8px 12px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .remove-btn:hover {
+            background-color: #c82333;
+        }
+
+        .empty-message {
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Wishlist</h1>
+
+<header>
+    <h1>Your Wishlist</h1>
+</header>
+
+<div class="container">
     <div id="wishlist">
         <!-- Wishlist items will be dynamically generated here -->
     </div>
+    <div id="empty-message" class="empty-message" style="display: none;">
+        Your wishlist is empty.
+    </div>
+</div>
+
+<script src="wishlist.js"></script>
+
 </body>
 </html>
