@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="sticky-header">
+        <div class="logo">E-Shop</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="product-details">
+        <div class="product-image">
+            <img src="smartphone.jpg" alt="Product Image">
+        </div>
+        <div class="product-info">
+            <h2>Product Name</h2>
+            <p class="price">$299.99</p>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in viverra orci, nec egestas quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            <button onclick="addToCart('Smartphone', 299.99)">Add to Cart</button>
+        </div>
+    </section>
+
+    <section class="related-products">
+        <h3>Related Products</h3>
+        <div class="product-grid">
+            <!-- Dynamically load related products -->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 E-Shop. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

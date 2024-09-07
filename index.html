@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Shop - Advanced</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="logo">E-Shop</div>
+        <nav>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="auth.html">Login</a></li>
+            </ul>
+        </nav>
+        <div class="cart-icon">
+            <a href="cart.html">Cart (0)</a>
+        </div>
+    </header>
+
+    <!-- Search and Filter Section -->
+    <section class="search-filter">
+        <input type="text" id="search-bar" placeholder="Search products..." onkeyup="searchProducts()">
+        <select id="category-filter" onchange="filterProducts()">
+            <option value="all">All Categories</option>
+            <option value="electronics">Electronics</option>
+            <option value="clothing">Clothing</option>
+            <option value="books">Books</option>
+        </select>
+        <select id="price-filter" onchange="filterProducts()">
+            <option value="all">All Prices</option>
+            <option value="low">Under $50</option>
+            <option value="mid">$50 - $100</option>
+            <option value="high">Over $100</option>
+        </select>
+    </section>
+
+    <!-- Product Listing -->
+    <section class="products">
+        <h2>Featured Products</h2>
+        <div class="product-grid" id="product-list">
+            <!-- Products will be dynamically added here -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 E-Shop. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
