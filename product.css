@@ -1,3 +1,59 @@
+body, h1, h2, h3, p, ul, ol {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background: #f4f4f9;
+    line-height: 1.6;
+}
+
+/* Sticky Header Styles */
+.sticky-header {
+    position: sticky;
+    top: 0;
+    background: linear-gradient(135deg, #ff6b6b, #f06595);
+    color: #ffffff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-bottom: 4px solid #f06595;
+}
+
+.sticky-header .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.sticky-header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.sticky-header nav ul li {
+    margin: 0;
+}
+
+.sticky-header nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.sticky-header nav ul li a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -44,7 +100,7 @@
     background-color: #28a745;
     color: white;
     border: none;
-    padding: 12px 24px;
+    padding: 15px 25px;
     font-size: 1rem;
     border-radius: 5px;
     cursor: pointer;

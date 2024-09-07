@@ -3,11 +3,15 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function fetchProducts() {
-    // Example API endpoint
     const apiURL = 'https://fakestoreapi.com/products';
 
     fetch(apiURL)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(products => {
             displayProducts(products);
         })
@@ -39,11 +43,11 @@ function displayProducts(products) {
 }
 
 function addToCart(productName, productPrice) {
-    // Your logic for adding to the cart
     alert(`Added ${productName} to the cart!`);
+    // You can add more logic here to actually add the item to the cart
 }
 
 function addToWishlist(productId) {
-    // Your logic for adding to the wishlist
     alert(`Added product ID ${productId} to the wishlist!`);
+    // You can add more logic here to actually add the item to the wishlist
 }
